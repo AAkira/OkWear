@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">OkWear</string>
+    <string name="hello_round">send Round World!</string>
+    <string name="hello_square">send Square World!</string>
+
+    <string name="send_sample">send sample</string>
+</resources>
