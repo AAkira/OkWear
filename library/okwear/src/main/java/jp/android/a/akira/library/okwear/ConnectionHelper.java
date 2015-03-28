@@ -138,7 +138,7 @@ public class ConnectionHelper implements GoogleApiClient.ConnectionCallbacks, Go
      * send message
      * you don't have to send anything
      *
-     * @param node    送信先node
+     * @param node     送信先node
      * @param payload
      * @param path
      * @param listener
@@ -160,7 +160,6 @@ public class ConnectionHelper implements GoogleApiClient.ConnectionCallbacks, Go
     }
 
     /**
-     *
      * send message using AsyncTask
      * you don't have to send anything
      *
@@ -170,9 +169,9 @@ public class ConnectionHelper implements GoogleApiClient.ConnectionCallbacks, Go
      * @param listener
      */
     public void sendMessageAsync(@NonNull final Node node, @Nullable final byte[] payload,
-        @NonNull final String path, @Nullable final SendResultListener<MessageApi.SendMessageResult> listener) {
+                                 @NonNull final String path, @Nullable final SendResultListener<MessageApi.SendMessageResult> listener) {
 
-        if(mGoogleApiClient != null && mGoogleApiClient.isConnected()) {
+        if (mGoogleApiClient != null && mGoogleApiClient.isConnected()) {
             new SendMessageTask(mGoogleApiClient, node, payload, path, listener).execute();
         }
     }
@@ -203,7 +202,7 @@ public class ConnectionHelper implements GoogleApiClient.ConnectionCallbacks, Go
      * @param listener
      */
     public void syncDataAsync(@NonNull final PutDataRequest request, @Nullable final SendResultListener<DataApi.DataItemResult> listener) {
-        if(mGoogleApiClient != null && mGoogleApiClient.isConnected()) {
+        if (mGoogleApiClient != null && mGoogleApiClient.isConnected()) {
             new SendDataTask(mGoogleApiClient, request, listener).execute();
         }
     }

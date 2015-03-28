@@ -16,6 +16,7 @@ import java.util.List;
 import jp.android.a.akira.library.okwear.OkWear;
 import jp.android.a.akira.library.okwear.listener.NodeChangeListener;
 import jp.android.a.akira.library.okwear.listener.SendResultListener;
+import jp.android.a.akira.library.okwear.util.ParseByteArray;
 import jp.android.a.akira.library.okwear.util.Payload;
 
 public class MainActivity extends Activity implements View.OnClickListener {
@@ -63,7 +64,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     private void sampleSendMessage() {
-        final byte[] bs = ("hello message").getBytes();
+        final byte[] bs = ParseByteArray.fromInt(100);
 
         mOkWear.getNodeList(new NodeChangeListener() {
             @Override
@@ -74,14 +75,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     }
 
     private void sampleSendMessageAll() {
-        final byte[] bs = ("hello message").getBytes();
-
-        mOkWear.sendMessageAll(bs, null, new SendResultListener<MessageApi.SendMessageResult>() {
-            @Override
-            public void onResult(MessageApi.SendMessageResult result) {
-                Log.v(TAG, "Status: " + result.getStatus());
-            }
-        });
+        mOkWear.sendMessageAll("hello message", null);
     }
 
     private void sampleSendMessageAllAsync() {
@@ -94,11 +88,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
         });
     }
 
-    private void sampleSendData() {
+    private void sampleSyncData() {
         final Payload payload =
                 new Payload.Builder(OkWear.DEFAULT_DATA_API_PATH)
-                        .addPayload("key1", mPayload++)
-                        .addPayload("key2", "hello")
+                        .addPayload(OkWear.DEFAULT_DATA_API_KEY, mPayload++)
+                        .addPayload("my key", "hello")
                         .build();
 
         mOkWear.syncData(payload, new SendResultListener<DataApi.DataItemResult>() {
@@ -107,5 +101,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 Log.v(TAG, "Status: " + result.getStatus());
             }
         });
+    }
+
+    private void sampleSyncData2() {
+
+        mOkWear.syncData(OkWear.DEFAULT_DATA_API_PATH,
+                OkWear.DEFAULT_DATA_API_KEY,
+                "hello");
     }
 }

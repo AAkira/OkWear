@@ -113,8 +113,7 @@ public class Payload {
             return this;
         }
 
-        //TODO
-        Builder addPayload(String name, ArrayList<?> value) {
+        public Builder addPayload(String name, ArrayList<?> value) throws Exception {
             if (value.get(0) == null) {
                 throw new ClassCastException();
             }
@@ -125,6 +124,9 @@ public class Payload {
                 dataMap.putDataMapArrayList(name, (ArrayList<DataMap>) value);
             } else if (value.get(0) instanceof Integer) {
                 dataMap.putIntegerArrayList(name, (ArrayList<Integer>) value);
+            } else {
+                throw new Exception(
+                        "You can use only three type of String, Integer or DataMap.");
             }
             return this;
         }

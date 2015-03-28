@@ -10,10 +10,10 @@ import com.google.android.gms.wearable.DataMap;
 import com.google.android.gms.wearable.MessageEvent;
 
 import jp.android.a.akira.library.okwear.OkWear;
-import jp.android.a.akira.library.okwear.listener.ReceiveListener;
+import jp.android.a.akira.library.okwear.listener.WearReceiveListener;
 
 
-public class MainActivity extends ActionBarActivity implements ReceiveListener {
+public class MainActivity extends ActionBarActivity implements WearReceiveListener {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
