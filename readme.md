@@ -131,7 +131,7 @@ buildscript {
 }
 
 dependencies {
-	compile 'com.github.aakira:okwear:1.0.1'
+	compile 'com.github.aakira:okwear:1.0.2'
 }
 ```
 
