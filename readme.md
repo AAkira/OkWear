@@ -2,10 +2,12 @@ OkWear
 ----------
 
 ![Screen](/images/okwear_256.png)
+
 [![Platform](http://img.shields.io/badge/platform-android-brightgreen.svg?style=flat)](http://developer.android.com/index.html)
 [![Language](http://img.shields.io/badge/language-java-orange.svg?style=flat)](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 [![License](http://img.shields.io/badge/license-apache2.0-lightgrey.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-OkWear-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/1698)
+
 This is library to easily use connection between android wear and handheld device.
 
 ## Usage
@@ -21,7 +23,7 @@ static final String MESSAGE = "hello"
 
 OkWear ok = new OkWear(context);
 
-// unuse callback listener
+// unused callback listener
 ok.sendMessageAll(MESSAGE, PATH);
 
 // use callback listener
@@ -46,7 +48,7 @@ Payload payload =
 				.addPayload("key2", "hello")
 				.build();
 
-// unuse callback listener
+// unused callback listener
 ok.syncData(payload);
 
 // use callback listener
@@ -97,7 +99,7 @@ Payload is created by key value pairs.
 |:-:|:-:|:-:|:-:|:-:|:-:|
 |ArrayList&lt;Integer>|Asset|Bitmap|boolean|byte|int|
 |ArrayList&lt;String>|byte[]|DataMap|double|float|float[]|
-|ArrayList&lt;Datamap>|long|long[]|String|String[]|||
+|ArrayList&lt;DataMap>|long|long[]|String|String[]|||
 
 
 ```java
@@ -115,7 +117,7 @@ Payload payload =
 |double|float|String|char|
 
 ```java
-byte[] payload = Parsebytearray.fromString("hello");
+byte[] payload = ParseByteArray.fromString("hello");
 ```
 
 ## Setup
@@ -140,7 +142,7 @@ dependencies {
 You have to call `connect()` and `disconnect()` methods when `onResume()` and `onPause()` occur in your lifecycle
 
 ```java
-Okwear mOkWear;
+OkWear mOkWear;
 
 @Override
 protected void onResume() {
@@ -178,4 +180,3 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ```
-
